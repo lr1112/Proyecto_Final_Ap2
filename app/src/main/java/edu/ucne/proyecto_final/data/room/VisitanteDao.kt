@@ -17,7 +17,7 @@ interface VisitanteDao {
     @Query("DELETE FROM visitante WHERE VisitanteId = VisitanteId")
     suspend fun delete(visitanteId: Int)
     @Query("DELETE FROM Visitante ")
-    suspend fun deleteAllInterno()
+    suspend fun deleteAllVisitante()
 
 }
 
