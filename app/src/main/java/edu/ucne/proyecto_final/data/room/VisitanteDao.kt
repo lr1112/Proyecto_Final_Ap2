@@ -18,6 +18,8 @@ interface VisitanteDao {
     suspend fun delete(visitanteId: Int)
     @Query("DELETE FROM Visitante ")
     suspend fun deleteAllVisitante()
+    @Query("UPDATE visitante SET isComplete = :isComplete WHERE visitanteId = VisitanteId")
+    suspend fun updateInterno(isComplete: Boolean, visitanteId: Int)
 
 }
 

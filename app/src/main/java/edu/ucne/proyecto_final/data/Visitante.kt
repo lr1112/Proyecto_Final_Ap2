@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Visitante(
     @PrimaryKey(autoGenerate = true)
-    val VisitanteId: String,
+    val VisitanteId: Int,
     val Nombre: String,
     val Apellido: String,
     val Parentesco: String,
