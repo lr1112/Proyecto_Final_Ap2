@@ -18,5 +18,7 @@ interface InternoDao {
     suspend fun delete(internoId: Int)
     @Query("DELETE FROM Interno ")
     suspend fun deleteAllInterno()
+    @Query("UPDATE interno SET isComplete = :isComplete WHERE internoId = InternoId")
+    suspend fun updateInterno(isComplete: Boolean, internoId: Int)
 
 }

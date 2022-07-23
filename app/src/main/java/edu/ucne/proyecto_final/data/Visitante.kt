@@ -9,5 +9,6 @@ data class Visitante(
     val VisitanteId: String,
     val Nombre: String,
     val Apellido: String,
-    val Parentesco: String
+    val Parentesco: String,
+    val isComplete: Boolean = false
 )
