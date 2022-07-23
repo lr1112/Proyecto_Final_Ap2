@@ -6,6 +6,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import edu.ucne.proyecto_final.data.repository.InternoRepository
+import edu.ucne.proyecto_final.data.repository.VisitanteRepository
 import edu.ucne.proyecto_final.data.room.DataBase
 import edu.ucne.proyecto_final.data.room.InternoDao
 import edu.ucne.proyecto_final.data.room.VisitanteDao
@@ -29,5 +31,11 @@ object AppModule {
 
     fun providesVisitanteDao(dataBase: DataBase): VisitanteDao {
         return dataBase.visitanteDao()
+    }
+    fun providesInternoRepository(internoDao: InternoDao): InternoRepository {
+        return InternoRepository(internoDao)
+    }
+    fun providesVisitanteRepository(visitanteDao: VisitanteDao): VisitanteRepository {
+        return VisitanteRepository(visitanteDao)
     }
 }
