@@ -20,7 +20,7 @@ class VisitanteViewModel @Inject constructor(
     var parentesco by mutableStateOf("")
     var visitanteId by mutableStateOf(0)
 
-    var visitante = visitanteRepository.getList()
+    var visitantes = visitanteRepository.getList()
         private set
 
     fun Guardar(){
