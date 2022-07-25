@@ -22,10 +22,12 @@ class InternoRepository(private val internoDao: InternoDao) {
             internoDao.delete(interno.InternoId)
         }
     }
-
-            suspend fun updateTodo(isComplete: Boolean, internoId: Int) {
+        suspend fun updateInterno(isComplete: Boolean, internoId: Int) {
         Dispatchers.IO.apply {
             internoDao.updateInterno(isComplete, internoId)
         }
+    }
+    fun getList(): Flow<List<Interno>> {
+        return internoDao.getList()
     }
 }

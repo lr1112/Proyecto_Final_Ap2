@@ -3,7 +3,7 @@ package edu.ucne.proyecto_final.data
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "Internos")
 data class Interno(
     @PrimaryKey(autoGenerate = true)
     val InternoId: Int,

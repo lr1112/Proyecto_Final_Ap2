@@ -10,15 +10,21 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface InternoDao {
-    @Query("SELECT * FROM interno")
+    @Query("SELECT * FROM Internos")
     fun selectAll(): Flow<List<Interno>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(interno: Interno)
-    @Query("DELETE FROM interno WHERE internoId = InternoId")
+    @Query("DELETE FROM Internos WHERE internoId = InternoId")
     suspend fun delete(internoId: Int)
-    @Query("DELETE FROM Interno ")
+    @Query("DELETE FROM Internos ")
     suspend fun deleteAllInterno()
-    @Query("UPDATE interno SET isComplete = :isComplete WHERE internoId = InternoId")
+    @Query("UPDATE Internos SET isComplete = :isComplete WHERE internoId = InternoId")
     suspend fun updateInterno(isComplete: Boolean, internoId: Int)
+    @Query("""
+        SELECT * 
+        FROM Internos
+        ORDER BY InternoId   
+    """)
+    fun getList(): Flow<List<Interno>>
 
 }
