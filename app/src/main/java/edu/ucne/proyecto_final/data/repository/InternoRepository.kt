@@ -29,5 +29,6 @@ class InternoRepository(private val internoDao: InternoDao) {
     }
     fun getList(): Flow<List<Interno>> {
         return internoDao.getList()
+
     }
 }
