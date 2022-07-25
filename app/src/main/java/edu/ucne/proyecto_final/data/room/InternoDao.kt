@@ -1,9 +1,6 @@
 package edu.ucne.proyecto_final.data.room
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import edu.ucne.proyecto_final.data.Interno
 import kotlinx.coroutines.flow.Flow
 
@@ -14,8 +11,8 @@ interface InternoDao {
     fun selectAll(): Flow<List<Interno>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(interno: Interno)
-    @Query("DELETE FROM Internos WHERE internoId = InternoId")
-    suspend fun delete(internoId: Int)
+    @Delete
+    suspend fun delete(interno: Interno)
     @Query("DELETE FROM Internos ")
     suspend fun deleteAllInterno()
     @Query("UPDATE Internos SET isComplete = :isComplete WHERE internoId = InternoId")
@@ -23,7 +20,7 @@ interface InternoDao {
     @Query("""
         SELECT * 
         FROM Internos
-        ORDER BY InternoId   
+        ORDER BY Nombre   
     """)
     fun getList(): Flow<List<Interno>>
 
