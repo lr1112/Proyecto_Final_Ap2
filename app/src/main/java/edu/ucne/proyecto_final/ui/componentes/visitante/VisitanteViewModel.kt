@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class OcupacionViewModel @Inject constructor(
+class VisitanteViewModel @Inject constructor(
     val visitanteRepository : VisitanteRepository
 ) : ViewModel(){
     var nombre by mutableStateOf("")
