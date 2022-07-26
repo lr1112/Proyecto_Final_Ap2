@@ -1,4 +1,5 @@
-package edu.ucne.proyecto_final.ui.componentes.visitante
+package edu.ucne.proyecto_final.ui.componentes.interno
+
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,48 +15,43 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import edu.ucne.proyecto_final.RowVisitante
+import edu.ucne.proyecto_final.RowInterno
 import edu.ucne.proyecto_final.utils.Screen
 
-
 @Composable
-fun ConsultadeVisitantesScreen(
+fun ConsultadeInternosScreen(
     navHostController: NavHostController,
-    viewModel : VisitanteViewModel = hiltViewModel()
+    viewModel: InternoViewModel = hiltViewModel()
 ){
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Consulta de Ocupaciones") }
+                title = { Text(text = "Consulta de Internos")}
             )
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                navHostController.navigate(Screen.RegistrodeVisitantesScreen.route)
+                navHostController.navigate(Screen.RegistrodeInternosScreen.route)
             }) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = null)
             }
         }
 
     ) {
-
         Column(modifier = Modifier
             .padding(it)
             .padding(8.dp)) {
 
-            val lista = viewModel.visitantes.collectAsState(initial = emptyList())
+            Button(onClick = { navHostController.navigate(Screen.ConsultadeVisitantesScreen.route) }) {
+                Text(text = "Nuevo Visitante")
+            }
+            val lista = viewModel.interno.collectAsState(initial = emptyList())
 
             LazyColumn(modifier = Modifier.fillMaxWidth()){
                 items(lista.value){
-                        visitante -> RowVisitante(visitante = visitante)
+                        interno -> RowInterno(interno = interno)
                 }
-
             }
-
-
         }
     }
-
 }
-
-

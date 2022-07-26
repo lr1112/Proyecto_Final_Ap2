@@ -48,6 +48,15 @@ fun RowVisitante(visitante: Visitante){
     }
 }
 @Composable
+fun RowInterno(interno: Interno){
+    Row() {
+        Text(text = interno.Nombre)
+        Text(text = interno.Apellido)
+        Text(text = interno.Ficha)
+        Text(text = interno.Pabellon)
+    }
+}
+@Composable
 fun VisitanteSpinner(
     viewModel: VisitanteViewModel = hiltViewModel(),
     viewModelP: InternoViewModel = hiltViewModel()
