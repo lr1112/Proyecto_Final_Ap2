@@ -6,8 +6,9 @@ import edu.ucne.proyecto_final.data.Visitante
 import edu.ucne.proyecto_final.data.room.VisitanteDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class VisitanteRepository (private val visitanteDao: VisitanteDao){
+class VisitanteRepository @Inject constructor(private val visitanteDao: VisitanteDao){
     suspend fun insertTodo(visitante: Visitante) {
         Dispatchers.IO.apply {
             visitanteDao.insert(visitante)
@@ -16,13 +17,13 @@ class VisitanteRepository (private val visitanteDao: VisitanteDao){
 
     suspend fun deleteTodo(visitante: Visitante) {
         Dispatchers.IO.apply {
-            visitanteDao.delete(visitante.VisitanteId)
+            visitanteDao.delete(visitante)
         }
     }
 
-    suspend fun updateTodo(isComplete: Boolean, visitanteId: Int) {
+    suspend fun updateTodo(isComplete: Boolean) {
         Dispatchers.IO.apply {
-            visitanteDao.updateInterno(isComplete, visitanteId)
+            visitanteDao.updateVisitante(isComplete)
         }
     }
     fun getList(): Flow<List<Visitante>> {

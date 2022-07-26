@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class InternoRepository(private val internoDao: InternoDao) {
+class InternoRepository @Inject constructor(private val internoDao: InternoDao) {
 
             suspend fun insertTodo(interno: Interno) {
         Dispatchers.IO.apply {
@@ -19,12 +19,12 @@ class InternoRepository(private val internoDao: InternoDao) {
 
             suspend fun deleteTodo(interno: Interno) {
         Dispatchers.IO.apply {
-            internoDao.delete(interno.InternoId)
+            internoDao.delete(interno)
         }
     }
-        suspend fun updateInterno(isComplete: Boolean, internoId: Int) {
+        suspend fun updateInterno(isComplete: Boolean) {
         Dispatchers.IO.apply {
-            internoDao.updateInterno(isComplete, internoId)
+            internoDao.updateInterno(isComplete)
         }
     }
     fun getList(): Flow<List<Interno>> {

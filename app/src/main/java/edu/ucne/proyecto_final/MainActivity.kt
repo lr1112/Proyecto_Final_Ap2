@@ -15,12 +15,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import edu.ucne.proyecto_final.data.Interno
 import edu.ucne.proyecto_final.data.Visitante
+import edu.ucne.proyecto_final.ui.componentes.interno.ConsultadeInternosScreen
 import edu.ucne.proyecto_final.ui.componentes.interno.InternoViewModel
+import edu.ucne.proyecto_final.ui.componentes.interno.RegistrodeInternosScreen
+import edu.ucne.proyecto_final.ui.componentes.visitante.ConsultadeVisitantesScreen
+import edu.ucne.proyecto_final.ui.componentes.visitante.RegistrodeVisitantesScreen
 import edu.ucne.proyecto_final.ui.componentes.visitante.VisitanteViewModel
 import edu.ucne.proyecto_final.ui.theme.Proyecto_FinalTheme
+import edu.ucne.proyecto_final.utils.Screen
 
 var selectedVisitante: String? = null
 @AndroidEntryPoint
@@ -34,9 +42,28 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-
+                    MyApp()
                 }
             }
+        }
+    }
+}
+@Composable
+fun MyApp() {
+    val navHostController = rememberNavController()
+
+    NavHost(navController = navHostController, startDestination = Screen.ConsultadeInternosScreen.route){
+        composable(Screen.ConsultadeVisitantesScreen.route){
+            ConsultadeVisitantesScreen(navHostController = navHostController)
+        }
+        composable(Screen.RegistrodeVisitantesScreen.route){
+            RegistrodeVisitantesScreen(navHostController = navHostController)
+        }
+        composable(Screen.ConsultadeInternosScreen.route){
+            ConsultadeInternosScreen(navHostController = navHostController)
+        }
+        composable(Screen.RegistrodeInternosScreen.route){
+            RegistrodeInternosScreen(navHostController = navHostController)
         }
     }
 }
@@ -97,5 +124,12 @@ fun VisitanteSpinner(
 
             }
         }
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    Proyecto_FinalTheme {
+        MyApp()
     }
 }
