@@ -72,6 +72,8 @@ fun MyApp() {
 fun RowVisitante(visitante: Visitante){
     Row() {
         Text(text = visitante.Nombre)
+        Text(text = visitante.Apellido)
+        Text(text = visitante.Parentesco)
     }
 }
 @Composable
@@ -79,8 +81,13 @@ fun RowInterno(interno: Interno){
     Row() {
         Text(text = interno.Nombre)
         Text(text = interno.Apellido)
-        Text(text = interno.Ficha)
-        Text(text = interno.Pabellon)
+        Text(text = "   FICHA: ${interno.Ficha}")
+
+    }
+    Row(modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.End) {
+        Text(text = "PABELLON: ${interno.Pabellon}")
+
     }
 }
 @Composable

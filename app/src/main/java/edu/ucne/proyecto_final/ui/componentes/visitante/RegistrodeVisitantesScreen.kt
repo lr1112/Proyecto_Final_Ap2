@@ -9,6 +9,8 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -36,7 +38,7 @@ fun RegistrodeVisitantesScreen(
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.Settings,
+                    imageVector = Icons.Default.Person,
                     contentDescription = null)
             }
         )
@@ -49,7 +51,7 @@ fun RegistrodeVisitantesScreen(
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.Email,
+                    imageVector = Icons.Default.Person,
                     contentDescription = null
                 )
             }
@@ -63,7 +65,7 @@ fun RegistrodeVisitantesScreen(
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.Email,
+                    imageVector = Icons.Default.Face,
                     contentDescription = null
                 )
             }

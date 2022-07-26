@@ -15,9 +15,9 @@ import javax.inject.Inject
 class VisitanteViewModel @Inject constructor(
     val visitanteRepository : VisitanteRepository
 ) : ViewModel(){
-    var nombre by mutableStateOf("")
-    var apellido by mutableStateOf("")
-    var parentesco by mutableStateOf("")
+    var nombre by mutableStateOf(" ")
+    var apellido by mutableStateOf(" ")
+    var parentesco by mutableStateOf(" ")
     var visitanteId by mutableStateOf(0)
 
     var visitantes = visitanteRepository.getList()

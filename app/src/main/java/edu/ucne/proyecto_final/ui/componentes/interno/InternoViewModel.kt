@@ -16,14 +16,14 @@ class InternoViewModel @Inject constructor(
     val internoRepository: InternoRepository
 ) : ViewModel() {
 
-    var nombre by mutableStateOf("")
+    var nombre by mutableStateOf(" ")
 
-    var apellido by mutableStateOf("")
+    var apellido by mutableStateOf(" ")
 
     var internoId by mutableStateOf(0)
 
-    var ficha by mutableStateOf("")
-    var pabellon by mutableStateOf("")
+    var ficha by mutableStateOf(" ")
+    var pabellon by mutableStateOf(" ")
 
     var interno = internoRepository.getList()
         private set

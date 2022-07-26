@@ -8,9 +8,7 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -60,7 +58,7 @@ fun RegistrodeInternosScreen(
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.Email,
+                    imageVector = Icons.Default.Person,
                     contentDescription = null
                 )
             }
@@ -74,7 +72,7 @@ fun RegistrodeInternosScreen(
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.Email,
+                    imageVector = Icons.Default.Home,
                     contentDescription = null
                 )
             }
@@ -87,11 +85,11 @@ fun RegistrodeInternosScreen(
             onValueChange = { viewModel.ficha = it },
             modifier = Modifier.fillMaxWidth(),
             label = {
-                Text(text = "Salario")
+                Text(text = "Ficha de interno")
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.Check,
+                    imageVector = Icons.Default.Face,
                     contentDescription = null
                 )
             }
