@@ -26,7 +26,7 @@ fun ConsultadeVisitantesScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Consulta de Ocupaciones") }
+                title = { Text(text = "Consulta de Visitantes") }
             )
         },
         floatingActionButton = {

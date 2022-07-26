@@ -8,6 +8,7 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,12 +32,40 @@ fun RegistrodeVisitantesScreen(
             onValueChange = {viewModel.nombre = it},
             modifier = Modifier.fillMaxWidth(),
             label = {
-                Text(text = "Nombre de la Ocupaci~n")
+                Text(text = "Nombre del Visitante")
             },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.Settings,
                     contentDescription = null)
+            }
+        )
+        OutlinedTextField(
+            value = viewModel.apellido,
+            onValueChange = { viewModel.apellido = it },
+            modifier = Modifier.fillMaxWidth(),
+            label = {
+                Text(text = "Apellido del Visitante")
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.Email,
+                    contentDescription = null
+                )
+            }
+        )
+        OutlinedTextField(
+            value = viewModel.parentesco,
+            onValueChange = { viewModel.parentesco = it },
+            modifier = Modifier.fillMaxWidth(),
+            label = {
+                Text(text = "Parentesco del Visitante")
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.Email,
+                    contentDescription = null
+                )
             }
         )
 

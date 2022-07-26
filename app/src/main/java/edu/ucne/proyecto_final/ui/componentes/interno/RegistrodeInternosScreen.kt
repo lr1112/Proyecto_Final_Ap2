@@ -56,7 +56,21 @@ fun RegistrodeInternosScreen(
             onValueChange = { viewModel.apellido = it },
             modifier = Modifier.fillMaxWidth(),
             label = {
-                Text(text = "Email")
+                Text(text = "Apellido del Interno")
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.Email,
+                    contentDescription = null
+                )
+            }
+        )
+        OutlinedTextField(
+            value = viewModel.pabellon,
+            onValueChange = { viewModel.pabellon = it },
+            modifier = Modifier.fillMaxWidth(),
+            label = {
+                Text(text = "Pabellon del Interno")
             },
             leadingIcon = {
                 Icon(
