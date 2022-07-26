@@ -15,6 +15,7 @@ import javax.inject.Inject
 class InternoViewModel @Inject constructor(
     val internoRepository: InternoRepository
 ) : ViewModel() {
+
     var nombre by mutableStateOf("")
 
     var apellido by mutableStateOf("")
