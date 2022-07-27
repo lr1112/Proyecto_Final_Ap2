@@ -1,5 +1,6 @@
 package edu.ucne.proyecto_final
 
+import android.graphics.Paint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,6 +12,9 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -74,18 +78,25 @@ fun RowVisitante(visitante: Visitante){
         Text(text = visitante.Nombre)
         Text(text = visitante.Apellido)
         Text(text = visitante.Parentesco)
+
     }
+
 }
 @Composable
-fun RowInterno(interno: Interno){
-    Row() {
-        Text(text = interno.Nombre)
+fun RowInterno(interno: Interno) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start
+    ) {
+        Text(text = "Nombre: ${interno.Nombre}")
         Text(text = interno.Apellido)
         Text(text = "   FICHA: ${interno.Ficha}")
 
     }
-    Row(modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.End) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start
+    ) {
         Text(text = "PABELLON: ${interno.Pabellon}")
 
     }
@@ -98,7 +109,7 @@ fun VisitanteSpinner(
     val visitantes = viewModel.visitantes.collectAsState(initial = emptyList())
 
     var internoText by remember{
-        mutableStateOf("")
+        mutableStateOf(" ")
     }
     var expended by remember{
         mutableStateOf(false)
@@ -120,7 +131,7 @@ fun VisitanteSpinner(
                 visitantes.value.forEach {
                         interno ->
                     DropdownMenuItem(onClick = {
-                        viewModelP.internoId =interno.VisitanteId
+                        viewModelP.internoId = interno.VisitanteId
                         expended = false
                         internoText = interno.Parentesco
                         selectedVisitante = interno.Nombre

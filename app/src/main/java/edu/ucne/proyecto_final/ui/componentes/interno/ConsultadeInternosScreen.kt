@@ -25,7 +25,7 @@ import edu.ucne.proyecto_final.utils.Screen
 fun ConsultadeInternosScreen(
     navHostController: NavHostController,
     viewModel: InternoViewModel = hiltViewModel(),
-    viewModelV: VisitanteViewModel = hiltViewModel()
+   // viewModelV: VisitanteViewModel = hiltViewModel()
 ){
     Scaffold(
         topBar = {
@@ -50,17 +50,18 @@ fun ConsultadeInternosScreen(
                 Text(text = "Nuevo Visitante")
             }
             val lista = viewModel.interno.collectAsState(initial = emptyList())
-            val lista2 = viewModelV.visitantes.collectAsState(initial = emptyList())
+           // val lista2 = viewModelV.visitantes.collectAsState(initial = emptyList())
 
             LazyColumn(modifier = Modifier.fillMaxWidth()){
                 items(lista.value){
                         interno -> RowInterno(interno = interno)
 
-                }
-                items(lista2.value){
-                        visitante -> RowVisitante(visitante = visitante)
 
                 }
+               /* items(lista2.value){
+                        visitante -> RowVisitante(visitante = visitante)
+
+                }*/
 
             }
         }

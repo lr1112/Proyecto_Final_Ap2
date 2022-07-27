@@ -11,5 +11,6 @@ data class Interno(
     val Apellido: String,
     val Ficha: String,
     val Pabellon: String,
-    val isComplete: Boolean = false
+    val isComplete: Boolean = false,
+    val VisitanteId: Int
 )

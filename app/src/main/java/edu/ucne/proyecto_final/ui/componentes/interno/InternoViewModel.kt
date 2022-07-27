@@ -24,6 +24,7 @@ class InternoViewModel @Inject constructor(
 
     var ficha by mutableStateOf(" ")
     var pabellon by mutableStateOf(" ")
+    var visitanteId by mutableStateOf(0)
 
     var interno = internoRepository.getList()
         private set
@@ -36,7 +37,8 @@ class InternoViewModel @Inject constructor(
                     Apellido = apellido,
                     InternoId = internoId,
                     Ficha = ficha,
-                    Pabellon = pabellon
+                    Pabellon = pabellon,
+                    VisitanteId = visitanteId
                 )
             )
         }
