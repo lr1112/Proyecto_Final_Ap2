@@ -74,10 +74,17 @@ fun MyApp() {
 
 @Composable
 fun RowVisitante(visitante: Visitante){
-    Row() {
-        Text(text = visitante.Nombre)
+    Row(modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start) {
+        Text(text = "Nombre: ${visitante.Nombre}")
         Text(text = visitante.Apellido)
-        Text(text = visitante.Parentesco)
+
+    }
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start
+    ) {
+        Text(text = "PARENTESCO:  ${visitante.Parentesco}")
 
     }
 
