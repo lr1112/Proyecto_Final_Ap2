@@ -1,5 +1,6 @@
 package edu.ucne.proyecto_final
 
+import android.content.ClipData
 import android.graphics.Paint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -76,15 +77,15 @@ fun MyApp() {
 fun RowVisitante(visitante: Visitante){
     Row(modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Start) {
-        Text(text = "Nombre: ${visitante.Nombre}")
-        Text(text = visitante.Apellido)
+        Text(text = "Nombre de Visitante: ${visitante.Nombre}",color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
+        Text(text = visitante.Apellido,color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
 
     }
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Start
     ) {
-        Text(text = "PARENTESCO:  ${visitante.Parentesco}")
+        Text(text = "PARENTESCO:  ${visitante.Parentesco}",color = MaterialTheme.colors.secondary)
 
     }
 
@@ -95,19 +96,22 @@ fun RowInterno(interno: Interno) {
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Start
     ) {
-        Text(text = "Nombre: ${interno.Nombre}")
-        Text(text = interno.Apellido)
-        Text(text = "   FICHA: ${interno.Ficha}")
+        Text(text = "Nombre: ${interno.Nombre}", color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
+        Text(text = interno.Apellido, color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
+        Text(text = "   FICHA: ${interno.Ficha}", color = MaterialTheme.colors.secondary)
 
     }
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Start
     ) {
-        Text(text = "PABELLON: ${interno.Pabellon}")
+        Text(text = "PABELLON: ${interno.Pabellon}",color = MaterialTheme.colors.secondary)
 
     }
 }
+
+
+
 @Composable
 fun VisitanteSpinner(
     viewModel: VisitanteViewModel = hiltViewModel(),

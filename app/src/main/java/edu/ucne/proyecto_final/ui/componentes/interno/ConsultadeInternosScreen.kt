@@ -17,7 +17,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import edu.ucne.proyecto_final.RowInterno
 import edu.ucne.proyecto_final.RowVisitante
-import edu.ucne.proyecto_final.data.Visitante
 import edu.ucne.proyecto_final.ui.componentes.visitante.VisitanteViewModel
 import edu.ucne.proyecto_final.utils.Screen
 
@@ -25,7 +24,7 @@ import edu.ucne.proyecto_final.utils.Screen
 fun ConsultadeInternosScreen(
     navHostController: NavHostController,
     viewModel: InternoViewModel = hiltViewModel(),
-   // viewModelV: VisitanteViewModel = hiltViewModel()
+  //  viewModelV: VisitanteViewModel = hiltViewModel()
 ){
     Scaffold(
         topBar = {
@@ -50,7 +49,7 @@ fun ConsultadeInternosScreen(
                 Text(text = "Nuevo Visitante")
             }
             val lista = viewModel.interno.collectAsState(initial = emptyList())
-           // val lista2 = viewModelV.visitantes.collectAsState(initial = emptyList())
+           // val lista2 = viewModelV.visitantes.collectAsState(initial = emptyList() )
 
             LazyColumn(modifier = Modifier.fillMaxWidth()){
                 items(lista.value){
@@ -58,7 +57,7 @@ fun ConsultadeInternosScreen(
 
 
                 }
-               /* items(lista2.value){
+             /*  items(lista2.value){
                         visitante -> RowVisitante(visitante = visitante)
 
                 }*/
