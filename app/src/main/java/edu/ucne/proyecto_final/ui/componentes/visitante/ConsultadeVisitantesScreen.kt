@@ -1,5 +1,6 @@
 package edu.ucne.proyecto_final.ui.componentes.visitante
 
+import android.widget.SearchView
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -38,6 +39,7 @@ fun ConsultadeVisitantesScreen(
         }
 
     ) {
+
 
         Column(modifier = Modifier
             .padding(it)

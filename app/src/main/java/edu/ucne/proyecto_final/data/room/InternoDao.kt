@@ -20,7 +20,7 @@ interface InternoDao {
     @Query("""
         SELECT * 
         FROM Internos
-        ORDER BY Nombre   
+        ORDER BY InternoId   
     """)
     fun getList(): Flow<List<Interno>>
 
