@@ -5,6 +5,7 @@ import android.graphics.Paint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -15,6 +16,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -76,6 +78,7 @@ fun MyApp() {
 
 @Composable
 fun RowVisitante(visitante: Visitante){
+    Image(painter = painterResource(id = R.drawable.rafey), contentDescription = null)
     Row(modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Start) {
         Text(text = "Nombre de Visitante: ${visitante.Nombre}",color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
@@ -93,10 +96,14 @@ fun RowVisitante(visitante: Visitante){
 }
 @Composable
 fun RowInterno(interno: Interno) {
+    Image(painter = painterResource(id = R.drawable.rafey), contentDescription = null)
     Row(
-        modifier = Modifier.fillMaxWidth().background(Color.Gray),
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.Gray),
         horizontalArrangement = Arrangement.Start
     ) {
+
         Text(text = "Nombre: ${interno.Nombre}", color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
         Text(text = interno.Apellido, color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
         Text(text = "   FICHA: ${interno.Ficha}", color = MaterialTheme.colors.secondary)
