@@ -81,4 +81,6 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
     kapt "com.google.dagger:hilt-android-compiler:2.42"
     testImplementation 'junit:junit:4.13.2'
+    //viewmodel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
 }

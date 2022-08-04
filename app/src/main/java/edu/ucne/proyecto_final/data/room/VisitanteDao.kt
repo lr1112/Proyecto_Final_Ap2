@@ -20,6 +20,12 @@ interface VisitanteDao {
 
     @Query("UPDATE Visitantes SET isComplete = :isComplete ")
     suspend fun updateVisitante(isComplete: Boolean)
+    @Query("""
+        SELECT * 
+        FROM Visitantes
+        WHERE Nombre=:nombre
+    """)
+    fun buscar(nombre: String): Flow<Visitante>
 
 
     @Query("""

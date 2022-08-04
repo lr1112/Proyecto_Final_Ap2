@@ -30,10 +30,16 @@ class VisitanteViewModel @Inject constructor(
                     Nombre = nombre,
                     Apellido = apellido,
                     Parentesco = parentesco,
-                    VisitanteId = visitanteId,
+                    VisitanteId = visitanteId
 
                 )
             )
         }
     }
+    fun buscar(){
+        viewModelScope.launch {
+            visitanteRepository.buscar(nombre)
+        }
+    }
+
 }

@@ -9,9 +9,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,6 +41,7 @@ import edu.ucne.proyecto_final.ui.componentes.visitante.RegistrodeVisitantesScre
 import edu.ucne.proyecto_final.ui.componentes.visitante.VisitanteViewModel
 import edu.ucne.proyecto_final.ui.theme.Proyecto_FinalTheme
 import edu.ucne.proyecto_final.utils.Screen
+import kotlinx.coroutines.launch
 
 var selectedVisitante: String? = null
 @AndroidEntryPoint
@@ -77,45 +82,95 @@ fun MyApp() {
 }
 
 @Composable
-fun RowVisitante(visitante: Visitante){
-    Image(painter = painterResource(id = R.drawable.rafey), contentDescription = null)
-    Row(modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Start) {
-        Text(text = "Nombre de Visitante: ${visitante.Nombre}",color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
-        Text(text = visitante.Apellido,color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
-
-    }
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Start
-    ) {
-        Text(text = "PARENTESCO:  ${visitante.Parentesco}",color = MaterialTheme.colors.secondary)
-
-    }
-
-}
-@Composable
-fun RowInterno(interno: Interno) {
-    Image(painter = painterResource(id = R.drawable.rafey), contentDescription = null)
-    Row(
+fun RowVisitante(visitante: Visitante) {
+    Card(
+        elevation = 10.dp,
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.Gray),
-        horizontalArrangement = Arrangement.Start
+            .padding(15.dp)
     ) {
+        Column(modifier = Modifier.fillMaxWidth().padding(4.dp)) {
+            Icon(imageVector = Icons.Default.Face, contentDescription = null)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                    text = "Nombre de Visitante: ${visitante.Nombre}",
+                    style = MaterialTheme.typography.subtitle2
+                )
+                Text(text = visitante.Apellido, style = MaterialTheme.typography.subtitle2)
 
-        Text(text = "Nombre: ${interno.Nombre}", color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
-        Text(text = interno.Apellido, color = MaterialTheme.colors.primary, style = MaterialTheme.typography.subtitle2)
-        Text(text = "   FICHA: ${interno.Ficha}", color = MaterialTheme.colors.secondary)
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(text = "PARENTESCO:  ${visitante.Parentesco}")
+
+
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(text = "ID de visitante:   ${visitante.VisitanteId}")
+
+
+            }
+        }
 
     }
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Start
+}
+
+
+@Composable
+fun RowInterno(interno: Interno) {
+    Card(
+        elevation = 10.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(15.dp)
     ) {
-        Text(text = "PABELLON: ${interno.Pabellon}",color = MaterialTheme.colors.secondary)
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(4.dp)) {
+            Icon(imageVector = Icons.Default.Face, contentDescription = null )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start
+            ) {
+
+                Text(text = "Nombre: ${interno.Nombre}", style = MaterialTheme.typography.subtitle2)
+                Text(text = interno.Apellido, style = MaterialTheme.typography.subtitle2)
+                Text(text = "   FICHA: ${interno.Ficha}")
+
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(text = "PABELLON: ${interno.Pabellon}")
+
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(text = "ID del interno: ${interno.InternoId}")
+
+            }
+        }
 
     }
+
+
 }
 
 

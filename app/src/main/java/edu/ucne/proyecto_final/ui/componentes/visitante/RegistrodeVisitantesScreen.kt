@@ -1,12 +1,10 @@
 package edu.ucne.proyecto_final.ui.componentes.visitante
 
+import android.content.DialogInterface
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
@@ -21,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import edu.ucne.proyecto_final.selectedVisitante
 
 @Composable
 fun RegistrodeVisitantesScreen(
@@ -80,5 +79,16 @@ fun RegistrodeVisitantesScreen(
         }) {
             Text(text = "Guardar")
         }
+        Button(onClick = {
+
+            viewModel.buscar()
+            navHostController.navigateUp()
+        }) {
+            Text(text = "Buscar")
+        }
     }
+
+
+
+
 }

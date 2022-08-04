@@ -30,4 +30,7 @@ class VisitanteRepository @Inject constructor(private val visitanteDao: Visitant
         return visitanteDao.getList()
 
     }
+    fun buscar(nombre: String): Flow<Visitante> {
+        return visitanteDao.buscar(nombre)
+    }
 }
